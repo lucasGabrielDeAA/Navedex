@@ -194,7 +194,6 @@
 				107BE4608F82A9E94B8AFAC0 /* Pods-Navedex-tvOSTests.debug.xcconfig */,
 				B450BC34AD91637777828E2D /* Pods-Navedex-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
