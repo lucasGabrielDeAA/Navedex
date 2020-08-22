@@ -1,4 +1,10 @@
-import React, {createContext, useState, useContext, useCallback} from 'react';
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useCallback,
+  useEffect,
+} from 'react';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -11,20 +17,34 @@ export const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true);
 
   const signIn = useCallback(async (data) => {
-    console.tron.log(data);
-    // const response = await api.post('users/signup', data);
-    const loggedUser = {id: Math.random(), email: data.email};
-    setUser(loggedUser);
-    // Here goes the login flux
-    // After login
-    const token = 'abc123gsldfkhgbsldkf';
+    console.log(data);
+    const {token, email, id} = await api.post('users/login', data);
+    const loggedUSer = {email, id};
+
+    setUser(loggedUSer);
+
     await AsyncStorage.setItem('@Navedex:token', token);
+    await AsyncStorage.setItem('@Navedex:user', JSON.stringify(loggedUSer));
     api.defaults.headers.Authorization = `Bearer ${token}`;
   }, []);
 
   const signOut = useCallback(async () => {
     await AsyncStorage.clear();
     setUser(null);
+  }, []);
+
+  const loadData = useCallback(async () => {
+    try {
+      setLoading(true);
+      const loggedUser = await AsyncStorage.getItem('@Navedex:user');
+
+      setUser(loggedUser !== null ? JSON.parse(loggedUser) : null);
+      setLoading(false);
+    } catch (error) {}
+  }, []);
+
+  useEffect(() => {
+    loadData();
   }, []);
 
   return (

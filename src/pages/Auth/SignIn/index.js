@@ -1,7 +1,5 @@
 import React, {useRef, useCallback, useState} from 'react';
 
-import {useNavigation} from '@react-navigation/native';
-
 import NavedexLogo from '../../../assets/images/Logo.png';
 
 import Yup from '../../../config/yup';
@@ -9,8 +7,6 @@ import Yup from '../../../config/yup';
 import Button from '../../../components/Button';
 import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
-
-import colors from '../../../styles/colors';
 
 import {useAuth} from '../../../hooks/useAuth';
 
@@ -22,7 +18,6 @@ const schema = Yup.object().shape({
 });
 
 export default function SignIn() {
-  const navigation = useNavigation();
   const {signIn} = useAuth();
   const formRef = useRef(null);
   const [inputSelected, setInputSelected] = useState('');
