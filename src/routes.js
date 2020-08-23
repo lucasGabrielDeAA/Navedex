@@ -4,16 +4,41 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SignIn from './pages/Auth/SignIn';
 import NaversList from './pages/Navers/List';
+import NaversNew from './pages/Navers/New';
+import NaversEdit from './pages/Navers/Edit';
 
 import {useAuth} from './hooks/useAuth';
 import DrawerButton from './components/DrawerButton';
 import ImageTitle from './components/ImageTitle';
 import LoadingScreen from './components/LoadingScreen';
 import DrawerContent from './components/DrawerContent';
+import BackButton from './components/BackButton';
 
 const Stack = createStackNavigator();
 
 const Drawer = createDrawerNavigator();
+
+function NaverStack({navigation}) {
+  return (
+    <Stack.Navigator initialRouteName="NaversList">
+      <Stack.Screen
+        name="NaversList"
+        component={NaversList}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="NaversNew"
+        component={NaversNew}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="NaversEdit"
+        component={NaversEdit}
+        options={{headerShown: true}}
+      />
+    </Stack.Navigator>
+  );
+}
 
 // Drawer's screens
 function DrawerScreens() {
@@ -21,7 +46,7 @@ function DrawerScreens() {
     <Drawer.Navigator
       drawerPosition="left"
       drawerContent={() => <DrawerContent />}>
-      <Drawer.Screen name="NaversList" component={NaversList} />
+      <Drawer.Screen name="NaversList" component={NaverStack} />
     </Drawer.Navigator>
   );
 }
@@ -42,8 +67,8 @@ export default function Routes() {
             name="Home"
             component={DrawerScreens}
             options={{
-              headerLeft: () => <DrawerButton />,
-              headerTitle: <ImageTitle />,
+              headerTitle: null,
+              headerTransparent: true,
             }}
           />
         ) : (
