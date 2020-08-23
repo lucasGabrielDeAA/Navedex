@@ -39,6 +39,9 @@ export const AuthProvider = ({children}) => {
     try {
       setLoading(true);
       const loggedUser = await AsyncStorage.getItem('@Navedex:user');
+      const token = await AsyncStorage.getItem('@Navedex:token');
+
+      api.defaults.headers.Authorization = `Bearer ${token}`;
 
       setUser(loggedUser !== null ? JSON.parse(loggedUser) : null);
       setLoading(false);
