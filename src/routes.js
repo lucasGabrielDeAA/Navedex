@@ -3,9 +3,11 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SignIn from './pages/Auth/SignIn';
+import NaversList from './pages/Navers/List';
 
 import {useAuth} from './hooks/useAuth';
 import DrawerButton from './components/DrawerButton';
+import ImageTitle from './components/ImageTitle';
 import LoadingScreen from './components/LoadingScreen';
 
 const Stack = createStackNavigator();
@@ -15,8 +17,12 @@ const Drawer = createDrawerNavigator();
 // Drawer's screens
 function DrawerScreens() {
   return (
-    <Drawer.Navigator drawerPosition="right">
-      <Drawer.Screen name="Feed" component={SignIn} />
+    <Drawer.Navigator drawerPosition="left">
+      <Drawer.Screen
+        name="Navers"
+        component={NaversList}
+        options={{headerLeft: <DrawerButton />}}
+      />
       <Drawer.Screen name="Home" component={SignIn} />
     </Drawer.Navigator>
   );
@@ -38,8 +44,7 @@ export default function Routes() {
             name="Home"
             component={DrawerScreens}
             options={{
-              headerRight: () => <DrawerButton />,
-              headerTitle: null,
+              headerTitle: <ImageTitle />,
             }}
           />
         ) : (

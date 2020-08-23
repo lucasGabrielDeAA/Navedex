@@ -18,7 +18,9 @@ export const AuthProvider = ({children}) => {
 
   const signIn = useCallback(async (data) => {
     console.log(data);
-    const {token, email, id} = await api.post('users/login', data);
+    const {
+      data: {email, id, token},
+    } = await api.post('users/login', data);
     const loggedUSer = {email, id};
 
     setUser(loggedUSer);
