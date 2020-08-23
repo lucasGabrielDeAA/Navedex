@@ -12,6 +12,8 @@ export const Container = styled.View`
 
 export const Label = styled.Text`
   font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
   margin-bottom: 5px;
 `;
 

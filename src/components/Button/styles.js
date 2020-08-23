@@ -32,7 +32,7 @@ export const Label = styled.Text`
   ${(props) =>
     props.outline &&
     css`
-      color: ${colors.black};
+      color: ${colors.primary};
     `}
 
   ${(props) =>
