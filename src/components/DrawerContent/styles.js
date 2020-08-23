@@ -11,12 +11,15 @@ export const Container = styled.View`
 export const Content = styled.View`
   align-items: center;
   display: flex;
+  flex: 1;
   justify-content: center;
-  height: 100%;
-  width: 100%;
 `;
 
-export const Menu = styled(DrawerContentScrollView)``;
+export const Menu = styled(DrawerContentScrollView).attrs(() => ({
+  justifyContent: 'center',
+}))`
+  width: 100%;
+`;
 
 export const Option = styled(DrawerItem)`
   align-items: center;
