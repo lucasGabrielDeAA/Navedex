@@ -9,6 +9,7 @@ import {useAuth} from './hooks/useAuth';
 import DrawerButton from './components/DrawerButton';
 import ImageTitle from './components/ImageTitle';
 import LoadingScreen from './components/LoadingScreen';
+import DrawerContent from './components/DrawerContent';
 
 const Stack = createStackNavigator();
 
@@ -17,13 +18,10 @@ const Drawer = createDrawerNavigator();
 // Drawer's screens
 function DrawerScreens() {
   return (
-    <Drawer.Navigator drawerPosition="left">
-      <Drawer.Screen
-        name="Navers"
-        component={NaversList}
-        options={{headerLeft: <DrawerButton />}}
-      />
-      <Drawer.Screen name="Home" component={SignIn} />
+    <Drawer.Navigator
+      drawerPosition="left"
+      drawerContent={() => <DrawerContent />}>
+      <Drawer.Screen name="NaversList" component={NaversList} />
     </Drawer.Navigator>
   );
 }
@@ -32,9 +30,9 @@ function DrawerScreens() {
 export default function Routes() {
   const {signed, loading} = useAuth();
 
-  // if (loading) {
-  //   return <LoadingScreen />;
-  // }
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     signed !== null && (
@@ -44,6 +42,7 @@ export default function Routes() {
             name="Home"
             component={DrawerScreens}
             options={{
+              headerLeft: () => <DrawerButton />,
               headerTitle: <ImageTitle />,
             }}
           />

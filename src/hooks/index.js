@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AuthProvider } from './useAuth';
+import {AuthProvider} from './useAuth';
 
-export default function AppProvider({ children }) {
+export default function AppProvider({children}) {
   return <AuthProvider>{children}</AuthProvider>;
 }

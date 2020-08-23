@@ -9,7 +9,7 @@ export const StyledButton = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: center;
   margin: 5px 0;
-  padding: 11px 0;
+  padding: 11px;
 
   ${(props) =>
     props.outline &&
