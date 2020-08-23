@@ -2,18 +2,18 @@ import React, {useRef, useCallback, useState, useLayoutEffect} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
 
+import BackButton from '../../../components/BackButton';
 import Button from '../../../components/Button';
-import DrawerButton from '../../../components/DrawerButton';
-
-import {Container, Header, Title} from './styles';
 import ImageTitle from '../../../components/ImageTitle';
 
-export default function SignIn() {
+import {Container, Header, Title} from './styles';
+
+export default function Edit() {
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <DrawerButton />,
+      headerLeft: () => <BackButton callback={() => navigation.goBack()} />,
       headerTitle: <ImageTitle />,
     });
   }, [navigation]);
@@ -21,7 +21,7 @@ export default function SignIn() {
   return (
     <Container>
       <Header>
-        <Title>Navers</Title>
+        <Title>Edit</Title>
 
         <Button
           label="Adicionar naver"
