@@ -1,4 +1,10 @@
-import React, {useRef, useCallback, useState, useLayoutEffect} from 'react';
+import React, {
+  useRef,
+  useCallback,
+  useState,
+  useLayoutEffect,
+  useEffect,
+} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -8,7 +14,7 @@ import ImageTitle from '../../../components/ImageTitle';
 
 import {Container, Header, Title} from './styles';
 
-export default function Edit() {
+export default function Edit({route}) {
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
@@ -17,6 +23,11 @@ export default function Edit() {
       headerTitle: <ImageTitle />,
     });
   }, [navigation]);
+
+  useEffect(() => {
+    const {id} = route.params;
+    console.tron.log(id);
+  }, [route]);
 
   return (
     <Container>
