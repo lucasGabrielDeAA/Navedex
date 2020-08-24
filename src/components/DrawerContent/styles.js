@@ -25,6 +25,7 @@ export const Option = styled(DrawerItem)`
   align-items: center;
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 export const OptionLabel = styled.Text`

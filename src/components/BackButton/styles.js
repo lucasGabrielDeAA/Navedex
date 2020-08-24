@@ -4,7 +4,11 @@ import MaterialIcon from 'react-native-vector-icons/Ionicons';
 import colors from '../../styles/colors';
 
 export const Button = styled.TouchableOpacity`
-  margin-left: 16px;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  padding: 0 16px;
+  width: 100%;
 `;
 
 export const BackIcon = styled(MaterialIcon).attrs(() => ({
