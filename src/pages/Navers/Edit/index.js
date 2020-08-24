@@ -22,6 +22,7 @@ import Input from '../../../components/Form/Input';
 import ImageTitle from '../../../components/ImageTitle';
 
 import {Container, Title, StyledButton, Content} from './styles';
+import InputMask from '../../../components/Form/InputMask';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),
@@ -128,34 +129,26 @@ export default function Edit({
             onSubmitEditing={() => focusNextInput('birthdate')}
           />
 
-          <Input
-            autoCorrect={false}
-            name="birthdate"
+          <InputMask
+            type="datetime"
+            returnKeyType="done"
             placeholder="Idade"
-            autoCapitalize="none"
-            returnKeyType="next"
+            name="birthdate"
+            keyboardType="numeric"
+            options={{format: 'DD/MM/YYYY'}}
             handleFocus={() => scrollToFocusedInput('birthdate')}
             onSubmitEditing={() => focusNextInput('admission_date')}
           />
 
-          <Input
-            autoCorrect={false}
-            name="admission_date"
+          <InputMask
+            type="datetime"
+            returnKeyType="done"
             placeholder="Tempo de empresa"
-            autoCapitalize="none"
-            returnKeyType="next"
+            name="admission_date"
+            keyboardType="numeric"
+            options={{format: 'DD/MM/YYYY'}}
             handleFocus={() => scrollToFocusedInput('admission_date')}
             onSubmitEditing={() => focusNextInput('job_role')}
-          />
-
-          <Input
-            autoCorrect={false}
-            name="job_role"
-            placeholder="Cargo"
-            autoCapitalize="none"
-            returnKeyType="next"
-            handleFocus={() => scrollToFocusedInput('job_role')}
-            onSubmitEditing={() => focusNextInput('project')}
           />
 
           <Input
