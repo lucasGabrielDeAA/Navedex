@@ -21,7 +21,7 @@ export const CustomInput = styled.TextInput.attrs(() => ({
   placeholderTextColor: colors.darkGray,
 }))`
   background: ${colors.white};
-  border-width: 1;
+  border-width: 1px;
   font-size: 16px;
   padding: 10px;
 

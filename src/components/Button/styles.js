@@ -10,11 +10,13 @@ export const StyledButton = styled.TouchableOpacity`
   justify-content: center;
   margin: 5px 0;
   padding: 11px;
+  width: 50%;
 
   ${(props) =>
     props.outline &&
     css`
       background: transparent;
+      border-width: 1px;
     `}
 
   ${(props) =>
