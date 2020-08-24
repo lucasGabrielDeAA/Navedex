@@ -41,7 +41,6 @@ export const Label = styled.Text`
   ${(props) =>
     props.large &&
     css`
-      font-family: 'montserrat'
       font-size: 22px;
       line-height: 32px;
     `}
