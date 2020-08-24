@@ -7,7 +7,6 @@ import {useNavigation} from '@react-navigation/native';
 import api from '../../../services/api';
 
 import Button from '../../../components/Button';
-import {CustomModal} from '../../../components/CustomModal';
 import DrawerButton from '../../../components/DrawerButton';
 import ImageTitle from '../../../components/ImageTitle';
 
@@ -89,9 +88,9 @@ export default function SignIn() {
     try {
       if (idSelected !== null) {
         await api.delete(`/navers/${idSelected}`);
-        setModalVisible(false);
+        await setModalVisible(false);
+        await setAlertModal(true);
         setData(data.filter((naver) => naver.id !== idSelected));
-        setAlertModal(true);
       }
     } catch (err) {}
   }, [idSelected, data]);
@@ -111,7 +110,7 @@ export default function SignIn() {
 
             <Button
               label="Adicionar naver"
-              onPress={() => navigation.navigate('NaversNew')}
+              onPress={() => navigation.push('NaversNew')}
             />
           </Header>
 

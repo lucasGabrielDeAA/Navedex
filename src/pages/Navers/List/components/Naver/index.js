@@ -30,7 +30,7 @@ export default function Naver({data, handleOpenModal}) {
         </RemoveButton>
 
         <EditButton
-          onPress={() => navigation.navigate('NaversEdit', {id: data.id})}>
+          onPress={() => navigation.push('NaversEdit', {id: data.id})}>
           <EditIcon />
         </EditButton>
       </Actions>

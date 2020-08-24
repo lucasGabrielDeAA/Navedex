@@ -9,6 +9,7 @@ export const Container = styled.View`
   display: flex;
   flex-direction: column;
   margin: 8px 16px;
+  width: 156px;
 `;
 
 export const ProfileImage = styled.Image`
