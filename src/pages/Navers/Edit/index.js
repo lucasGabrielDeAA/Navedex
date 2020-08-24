@@ -6,8 +6,6 @@ import React, {
   useEffect,
 } from 'react';
 
-import {Modal, View, StyleSheet} from 'react-native';
-
 import {useNavigation} from '@react-navigation/native';
 
 import Yup from '../../../config/yup';
@@ -15,23 +13,13 @@ import moment from '../../../config/Moment';
 
 import api from '../../../services/api';
 
+import AlertModal from '../../../components/AlertModal';
 import BackButton from '../../../components/BackButton';
 import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
 import ImageTitle from '../../../components/ImageTitle';
 
-import {
-  Container,
-  Title,
-  StyledButton,
-  Content,
-  ModalContainer,
-  ModalHeader,
-  ModalTitle,
-  ModalCloseButton,
-  ModalCloseIcon,
-  ModalLabel,
-} from './styles';
+import {Container, Title, StyledButton, Content} from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),
@@ -40,27 +28,6 @@ const schema = Yup.object().shape({
   birthdate: Yup.string().required(),
   project: Yup.string().required(),
   url: Yup.string().required(),
-});
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    padding: 21,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    width: 328,
-  },
 });
 
 export default function Edit({
@@ -213,25 +180,12 @@ export default function Edit({
         </Content>
       </Form>
 
-      <Modal
-        transparent
+      <AlertModal
         visible={modalVisible}
-        animationType="fade"
-        onRequestClose={() => {}}>
-        <ModalContainer style={styles.modalContainer}>
-          <View style={styles.modalView}>
-            <ModalHeader>
-              <ModalTitle>Naver editado</ModalTitle>
-
-              <ModalCloseButton onPress={() => handleCloseModal()}>
-                <ModalCloseIcon />
-              </ModalCloseButton>
-            </ModalHeader>
-
-            <ModalLabel>Naver editado com sucesso!</ModalLabel>
-          </View>
-        </ModalContainer>
-      </Modal>
+        title="Naver editado"
+        label="Naver editado com sucesso!"
+        handleClose={() => handleCloseModal()}
+      />
     </Container>
   );
 }

@@ -1,30 +1,18 @@
 import React, {useRef, useCallback, useState, useLayoutEffect} from 'react';
 
-import {Modal, View, StyleSheet} from 'react-native';
-
 import {useNavigation} from '@react-navigation/native';
 
 import Yup from '../../../config/yup';
 
 import api from '../../../services/api';
 
+import AlertModal from '../../../components/AlertModal';
 import BackButton from '../../../components/BackButton';
 import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
 import ImageTitle from '../../../components/ImageTitle';
 
-import {
-  Container,
-  Title,
-  Content,
-  StyledButton,
-  ModalContainer,
-  ModalHeader,
-  ModalTitle,
-  ModalCloseButton,
-  ModalCloseIcon,
-  ModalLabel,
-} from './styles';
+import {Container, Title, Content, StyledButton} from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),
@@ -33,27 +21,6 @@ const schema = Yup.object().shape({
   birthdate: Yup.string().required(),
   project: Yup.string().required(),
   url: Yup.string().required(),
-});
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    padding: 21,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    width: 328,
-  },
 });
 
 export default function New() {
@@ -96,7 +63,9 @@ export default function New() {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <BackButton callback={() => navigation.pop()} />,
+      headerLeft: () => (
+        <BackButton callback={() => navigation.push('NaversList')} />
+      ),
       headerTitle: <ImageTitle />,
     });
   }, [navigation]);
@@ -177,25 +146,12 @@ export default function New() {
         </Content>
       </Form>
 
-      <Modal
-        transparent
+      <AlertModal
         visible={modalVisible}
-        animationType="fade"
-        onRequestClose={() => {}}>
-        <ModalContainer style={styles.modalContainer}>
-          <View style={styles.modalView}>
-            <ModalHeader>
-              <ModalTitle>Naver adicionado</ModalTitle>
-
-              <ModalCloseButton onPress={() => setModalVisible(false)}>
-                <ModalCloseIcon />
-              </ModalCloseButton>
-            </ModalHeader>
-
-            <ModalLabel>Naver adicionado com sucesso!</ModalLabel>
-          </View>
-        </ModalContainer>
-      </Modal>
+        title="Naver adicionado"
+        label="Naver adicionado com sucesso!"
+        handleClose={() => setModalVisible(false)}
+      />
     </Container>
   );
 }
