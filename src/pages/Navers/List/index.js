@@ -144,7 +144,7 @@ export default function SignIn() {
               </ModalCloseButton>
             </ModalHeader>
 
-            <ModalLabel>Tem certeza que deseja excluir este nave?</ModalLabel>
+            <ModalLabel>Tem certeza que deseja excluir este naver?</ModalLabel>
 
             <ModalFooter>
               <Button
@@ -173,7 +173,7 @@ export default function SignIn() {
               </ModalCloseButton>
             </ModalHeader>
 
-            <ModalLabel>Naver excluído com sucesso</ModalLabel>
+            <ModalLabel>Naver excluído com sucesso!</ModalLabel>
           </View>
         </ModalContainer>
       </Modal>

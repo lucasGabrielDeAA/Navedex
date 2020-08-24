@@ -1,5 +1,7 @@
 import React, {useRef, useCallback, useState, useLayoutEffect} from 'react';
 
+import {Modal, View, StyleSheet} from 'react-native';
+
 import {useNavigation} from '@react-navigation/native';
 
 import Yup from '../../../config/yup';
@@ -12,7 +14,17 @@ import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
 import ImageTitle from '../../../components/ImageTitle';
 
-import {Container, Title, Content} from './styles';
+import {
+  Container,
+  Title,
+  Content,
+  ModalContainer,
+  ModalHeader,
+  ModalTitle,
+  ModalCloseButton,
+  ModalCloseIcon,
+  ModalLabel,
+} from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),
@@ -23,13 +35,35 @@ const schema = Yup.object().shape({
   url: Yup.string().required(),
 });
 
+const styles = StyleSheet.create({
+  modalContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    padding: 21,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    width: 328,
+  },
+});
+
 export default function New() {
   const navigation = useNavigation();
   const formRef = useRef(null);
 
   const [inputSelected, setInputSelected] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
 
-  const handleSubmit = useCallback(async (data) => {
+  const handleSubmit = useCallback(async (data, {reset}) => {
     try {
       formRef.current.setErrors({});
 
@@ -38,7 +72,8 @@ export default function New() {
       });
 
       await api.post('/navers', data);
-      navigation.push('NaversList');
+      await reset();
+      setModalVisible(true);
     } catch (err) {
       console.tron.log(err);
       const errors = {};
@@ -61,7 +96,9 @@ export default function New() {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <BackButton callback={() => navigation.goBack()} />,
+      headerLeft: () => (
+        <BackButton callback={() => navigation.push('NaversList')} />
+      ),
       headerTitle: <ImageTitle />,
     });
   }, [navigation]);
@@ -138,6 +175,26 @@ export default function New() {
           <Button label="Salvar" onPress={() => formRef.current.submitForm()} />
         </Content>
       </Form>
+
+      <Modal
+        transparent
+        visible={modalVisible}
+        animationType="fade"
+        onRequestClose={() => {}}>
+        <ModalContainer style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <ModalHeader>
+              <ModalTitle>Naver adicionado</ModalTitle>
+
+              <ModalCloseButton onPress={() => setModalVisible(false)}>
+                <ModalCloseIcon />
+              </ModalCloseButton>
+            </ModalHeader>
+
+            <ModalLabel>Naver adicionado com sucesso!</ModalLabel>
+          </View>
+        </ModalContainer>
+      </Modal>
     </Container>
   );
 }

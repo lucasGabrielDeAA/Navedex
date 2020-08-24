@@ -27,7 +27,8 @@ export const Title = styled.Text`
 
 export const NaversList = styled.FlatList.attrs(() => ({
   contentContainerStyle: {
-    alignItems: 'center',
+    flex: 1,
+    marginTop: 28,
   },
 }))``;
 

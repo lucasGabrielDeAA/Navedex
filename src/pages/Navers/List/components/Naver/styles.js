@@ -8,12 +8,12 @@ export const Container = styled.View`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 8px 16px;
-  width: 156px;
+  margin: 8px 24px;
+  width: 158px;
 `;
 
 export const ProfileImage = styled.Image`
-  height: 156px;
+  height: 158px;
   width: 100%;
 `;
 
@@ -54,7 +54,7 @@ export const EditButton = styled.TouchableOpacity`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-left: 16px;
+  margin-left: 24px;
 `;
 
 export const EditIcon = styled(Icon).attrs(() => ({

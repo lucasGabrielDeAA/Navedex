@@ -19,7 +19,9 @@ export default function Edit({route}) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <BackButton callback={() => navigation.goBack()} />,
+      headerLeft: () => (
+        <BackButton callback={() => navigation.push('NaversList')} />
+      ),
       headerTitle: <ImageTitle />,
     });
   }, [navigation]);
