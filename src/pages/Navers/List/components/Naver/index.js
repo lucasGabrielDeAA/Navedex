@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import {
   Container,
+  DetailButton,
   ProfileImage,
   Title,
   Description,
@@ -19,10 +20,13 @@ export default function Naver({data, handleOpenModal}) {
 
   return (
     <Container>
-      <ProfileImage source={{uri: data.url}} />
+      <DetailButton
+        onPress={() => navigation.push('NaversDetail', {id: data.id})}>
+        <ProfileImage source={{uri: data.url}} />
 
-      <Title>{data.name}</Title>
-      <Description>{data.job_role}</Description>
+        <Title>{data.name}</Title>
+        <Description>{data.job_role}</Description>
+      </DetailButton>
 
       <Actions>
         <RemoveButton onPress={() => handleOpenModal(data.id)}>

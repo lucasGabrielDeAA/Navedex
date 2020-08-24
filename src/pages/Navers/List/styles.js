@@ -4,6 +4,8 @@ import colors from '../../../styles/colors';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
+import Button from '../../../components/Button';
+
 export const Container = styled.SafeAreaView`
   background: ${colors.white};
   flex: 1;
@@ -74,4 +76,8 @@ export const ModalFooter = styled.View`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+`;
+
+export const StyledButton = styled(Button)`
+  width: 45%;
 `;

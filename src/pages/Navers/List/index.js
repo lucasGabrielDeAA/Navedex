@@ -22,6 +22,7 @@ import {
   ModalCloseIcon,
   ModalLabel,
   ModalFooter,
+  StyledButton,
 } from './styles';
 
 import Naver from './components/Naver';
@@ -147,12 +148,15 @@ export default function SignIn() {
             <ModalLabel>Tem certeza que deseja excluir este naver?</ModalLabel>
 
             <ModalFooter>
-              <Button
+              <StyledButton
                 outline
                 label="Cancelar"
                 onPress={() => handleCancelRemove()}
               />
-              <Button label="Excluir" onPress={() => handleDeleteNaver()} />
+              <StyledButton
+                label="Excluir"
+                onPress={() => handleDeleteNaver()}
+              />
             </ModalFooter>
           </View>
         </ModalContainer>

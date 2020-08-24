@@ -12,9 +12,12 @@ export const Container = styled.View`
   width: 158px;
 `;
 
+export const DetailButton = styled.TouchableOpacity`
+  width: 100%;
+`;
+
 export const ProfileImage = styled.Image`
   height: 158px;
-  width: 100%;
 `;
 
 export const Title = styled.Text`
