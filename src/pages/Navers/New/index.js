@@ -92,6 +92,16 @@ export default function New() {
             autoCapitalize="none"
             returnKeyType="next"
             handleFocus={() => scrollToFocusedInput('name')}
+            onSubmitEditing={() => focusNextInput('job_role')}
+          />
+
+          <Input
+            autoCorrect={false}
+            name="job_role"
+            placeholder="Cargo"
+            autoCapitalize="none"
+            returnKeyType="next"
+            handleFocus={() => scrollToFocusedInput('job_role')}
             onSubmitEditing={() => focusNextInput('birthdate')}
           />
 
@@ -114,16 +124,6 @@ export default function New() {
             keyboardType="numeric"
             options={{format: 'DD/MM/YYYY'}}
             handleFocus={() => scrollToFocusedInput('admission_date')}
-            onSubmitEditing={() => focusNextInput('job_role')}
-          />
-
-          <Input
-            autoCorrect={false}
-            name="job_role"
-            placeholder="Cargo"
-            autoCapitalize="none"
-            returnKeyType="next"
-            handleFocus={() => scrollToFocusedInput('job_role')}
             onSubmitEditing={() => focusNextInput('project')}
           />
 
