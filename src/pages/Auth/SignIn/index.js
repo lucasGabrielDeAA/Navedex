@@ -4,13 +4,12 @@ import NavedexLogo from '../../../assets/images/Logo.png';
 
 import Yup from '../../../config/yup';
 
-import Button from '../../../components/Button';
 import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
 
 import {useAuth} from '../../../hooks/useAuth';
 
-import {Container, Content, Logo, InputGroup} from './styles';
+import {Container, Content, Logo, InputGroup, StyledButton} from './styles';
 
 const schema = Yup.object().shape({
   email: Yup.string().email().required(),
@@ -81,7 +80,10 @@ export default function SignIn() {
             />
           </InputGroup>
 
-          <Button label="Entrar" onPress={() => formRef.current.submitForm()} />
+          <StyledButton
+            label="Entrar"
+            onPress={() => formRef.current.submitForm()}
+          />
         </Form>
       </Content>
     </Container>

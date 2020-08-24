@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import colors from '../../../styles/colors';
+import Button from '../../../components/Button';
 
 export const Container = styled.SafeAreaView`
   background: ${colors.white};
@@ -21,4 +22,8 @@ export const Logo = styled.Image`
 
 export const InputGroup = styled.View`
   margin: 24px 0 0;
+`;
+
+export const StyledButton = styled(Button)`
+  width: 100%;
 `;
