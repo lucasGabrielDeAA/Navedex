@@ -3,16 +3,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import SignIn from './pages/Auth/SignIn';
+import NaversEdit from './pages/Navers/Edit';
+import NaversDetail from './pages/Navers/Detail';
 import NaversList from './pages/Navers/List';
 import NaversNew from './pages/Navers/New';
-import NaversEdit from './pages/Navers/Edit';
 
 import {useAuth} from './hooks/useAuth';
-import DrawerButton from './components/DrawerButton';
-import ImageTitle from './components/ImageTitle';
 import LoadingScreen from './components/LoadingScreen';
 import DrawerContent from './components/DrawerContent';
-import BackButton from './components/BackButton';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +32,11 @@ function NaverStack({navigation}) {
       <Stack.Screen
         name="NaversEdit"
         component={NaversEdit}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="NaversDetail"
+        component={NaversDetail}
         options={{headerShown: true}}
       />
     </Stack.Navigator>
