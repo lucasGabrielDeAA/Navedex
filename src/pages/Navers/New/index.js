@@ -1,5 +1,7 @@
 import React, {useRef, useCallback, useState, useLayoutEffect} from 'react';
 
+import {View} from 'react-native';
+
 import {useNavigation} from '@react-navigation/native';
 
 import Yup from '../../../config/yup';
@@ -69,7 +71,8 @@ export default function New() {
       headerLeft: () => (
         <BackButton callback={() => navigation.push('NaversList')} />
       ),
-      headerTitle: <ImageTitle />,
+      headerTitle: () => <ImageTitle />,
+      headerRight: () => <View />,
     });
   }, [navigation]);
 

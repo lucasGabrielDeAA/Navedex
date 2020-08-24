@@ -6,6 +6,8 @@ import React, {
   useEffect,
 } from 'react';
 
+import {View} from 'react-native';
+
 import {useNavigation} from '@react-navigation/native';
 
 import Yup from '../../../config/yup';
@@ -98,7 +100,8 @@ export default function Edit({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => <BackButton callback={() => navigation.pop()} />,
-      headerTitle: <ImageTitle />,
+      headerTitle: () => <ImageTitle />,
+      headerRight: () => <View />,
     });
   }, [navigation]);
 

@@ -1,5 +1,7 @@
 import React, {useCallback, useState, useLayoutEffect, useEffect} from 'react';
 
+import {View} from 'react-native';
+
 import {useNavigation} from '@react-navigation/native';
 
 import api from '../../../services/api';
@@ -33,7 +35,8 @@ export default function SignIn() {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => <DrawerButton />,
-      headerTitle: <ImageTitle />,
+      headerTitle: () => <ImageTitle />,
+      headerRight: () => <View />,
     });
   }, [navigation]);
 

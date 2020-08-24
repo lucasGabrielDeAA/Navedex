@@ -1,6 +1,6 @@
 import React, {useCallback, useState, useLayoutEffect, useEffect} from 'react';
 
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -62,7 +62,8 @@ export default function Edit({
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => <BackButton callback={() => navigation.pop()} />,
-      headerTitle: <ImageTitle />,
+      headerTitle: () => <ImageTitle />,
+      headerRight: () => <View />,
     });
   }, [navigation]);
 
