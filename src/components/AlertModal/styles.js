@@ -21,6 +21,7 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 22px;
   font-weight: 600;
   line-height: 32px;
@@ -36,6 +37,7 @@ export const CloseIcon = styled(Icon).attrs(() => ({
 
 export const Label = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 16px;
   line-height: 24px;
   flex-wrap: wrap;

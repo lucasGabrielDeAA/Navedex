@@ -9,7 +9,14 @@ import Button from '../../../components/Button';
 import DrawerButton from '../../../components/DrawerButton';
 import ImageTitle from '../../../components/ImageTitle';
 
-import {Container, Header, Title, NaversList, StyledButton} from './styles';
+import {
+  Container,
+  Content,
+  Header,
+  Title,
+  NaversList,
+  StyledButton,
+} from './styles';
 
 import Naver from './components/Naver';
 import {ActivityIndicator} from 'react-native';
@@ -67,55 +74,57 @@ export default function SignIn() {
 
   return (
     <Container>
-      {loading ? (
-        <ActivityIndicator size="large" color="#000" />
-      ) : (
-        <>
-          <Header>
-            <Title>Navers</Title>
+      <Content refr showsVerticalScrollIndicator={false}>
+        {loading ? (
+          <ActivityIndicator size="large" color="#000" />
+        ) : (
+          <>
+            <Header>
+              <Title>Navers</Title>
 
-            <Button
-              label="Adicionar naver"
-              onPress={() => navigation.push('NaversNew')}
-            />
-          </Header>
-
-          <NaversList
-            showsVerticalScrollIndicator={false}
-            data={data}
-            numColumns={2}
-            keyExtractor={(item, index) => item.id}
-            renderItem={({item}) => (
-              <Naver
-                data={item}
-                handleOpenModal={(id) => handleOpenModal(id)}
+              <Button
+                label="Adicionar naver"
+                onPress={() => navigation.push('NaversNew')}
               />
-            )}
-          />
-        </>
-      )}
+            </Header>
 
-      <AlertModal
-        visible={modalVisible}
-        title="Excluir naver"
-        label="Tem certeza que deseja excluir este naver?"
-        handleClose={() => setModalVisible(false)}>
-        <>
-          <StyledButton
-            outline
-            label="Cancelar"
-            onPress={() => handleCancelRemove()}
-          />
-          <StyledButton label="Excluir" onPress={() => handleDeleteNaver()} />
-        </>
-      </AlertModal>
+            <NaversList
+              showsVerticalScrollIndicator={false}
+              data={data}
+              numColumns={2}
+              keyExtractor={(item, index) => item.id}
+              renderItem={({item}) => (
+                <Naver
+                  data={item}
+                  handleOpenModal={(id) => handleOpenModal(id)}
+                />
+              )}
+            />
+          </>
+        )}
 
-      <AlertModal
-        visible={alertModal}
-        title="Naver excluído"
-        label="Naver excluído com sucesso!"
-        handleClose={() => setAlertModal(false)}
-      />
+        <AlertModal
+          visible={modalVisible}
+          title="Excluir naver"
+          label="Tem certeza que deseja excluir este naver?"
+          handleClose={() => setModalVisible(false)}>
+          <>
+            <StyledButton
+              outline
+              label="Cancelar"
+              onPress={() => handleCancelRemove()}
+            />
+            <StyledButton label="Excluir" onPress={() => handleDeleteNaver()} />
+          </>
+        </AlertModal>
+
+        <AlertModal
+          visible={alertModal}
+          title="Naver excluído"
+          label="Naver excluído com sucesso!"
+          handleClose={() => setAlertModal(false)}
+        />
+      </Content>
     </Container>
   );
 }

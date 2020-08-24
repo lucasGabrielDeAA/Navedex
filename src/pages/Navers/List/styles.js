@@ -10,6 +10,8 @@ export const Container = styled.SafeAreaView`
   justify-content: center;
 `;
 
+export const Content = styled.ScrollView``;
+
 export const Header = styled.View`
   align-items: center;
   display: flex;
@@ -20,6 +22,7 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 22px;
   font-weight: 600;
   line-height: 32px;

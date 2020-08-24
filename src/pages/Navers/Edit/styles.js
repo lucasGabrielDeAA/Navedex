@@ -13,6 +13,7 @@ export const Container = styled.SafeAreaView`
 
 export const Title = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 22px;
   font-weight: 600;
   line-height: 32px;
@@ -42,6 +43,7 @@ export const ModalHeader = styled.View`
 
 export const ModalTitle = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 22px;
   font-weight: 600;
   line-height: 32px;
@@ -57,6 +59,7 @@ export const ModalCloseIcon = styled(Icon).attrs(() => ({
 
 export const ModalLabel = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 16px;
   line-height: 24px;
   flex-wrap: wrap;

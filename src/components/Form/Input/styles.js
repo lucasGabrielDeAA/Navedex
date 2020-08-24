@@ -11,6 +11,7 @@ export const Container = styled.View`
 `;
 
 export const Label = styled.Text`
+  font-family: 'montserrat'
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
@@ -22,6 +23,7 @@ export const CustomInput = styled.TextInput.attrs(() => ({
 }))`
   background: ${colors.white};
   border-width: 1px;
+  font-family: 'montserrat'
   font-size: 16px;
   padding: 10px;
 
@@ -42,6 +44,7 @@ export const CustomInput = styled.TextInput.attrs(() => ({
 
 export const Error = styled.Text`
   color: ${colors.danger};
+  font-family: 'montserrat'
   font-size: 14px;
   font-weight: 600;
   margin: 5px 2px 0;

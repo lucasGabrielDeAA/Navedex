@@ -28,6 +28,7 @@ export const StyledButton = styled.TouchableOpacity`
 
 export const Label = styled.Text`
   color: ${(props) => (props.labelColor ? props.labelColor : colors.white)};
+  font-family: 'montserrat'
   font-size: 17px;
   font-weight: bold;
 

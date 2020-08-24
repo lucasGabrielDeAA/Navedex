@@ -39,6 +39,8 @@ export default function New() {
         abortEarly: false,
       });
 
+      console.tron.log(data);
+
       await api.post('/navers', data);
       await reset();
       setModalVisible(true);

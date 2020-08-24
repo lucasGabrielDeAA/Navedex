@@ -78,10 +78,12 @@ export default function Edit({
       formRef.current.setData({
         name: naver.data.name,
         job_role: naver.data.job_role,
-        admission_date: String(
-          moment(naver.data.admission_date).format('DD/MM/YYYY'),
+        admission_date: moment(naver.data.admission_date, 'YYYY-MM-DD').format(
+          'DD/MM/YYYY',
         ),
-        birthdate: String(moment(naver.data.birthdate).format('DD/MM/YYYY')),
+        birthdate: moment(naver.data.birthdate, 'YYYY-MM-DD').format(
+          'DD/MM/YYYY',
+        ),
         project: naver.data.project,
         url: naver.data.url,
       });

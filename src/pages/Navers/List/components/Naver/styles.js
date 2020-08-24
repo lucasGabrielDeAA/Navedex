@@ -22,6 +22,7 @@ export const ProfileImage = styled.Image`
 
 export const Title = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -30,6 +31,7 @@ export const Title = styled.Text`
 
 export const Description = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 14px;
   line-height: 20px;
   margin: 4px 0;

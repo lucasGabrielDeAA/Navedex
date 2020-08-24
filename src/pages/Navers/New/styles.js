@@ -13,6 +13,7 @@ export const Container = styled.SafeAreaView`
 
 export const Title = styled.Text`
   color: ${colors.primary};
+  font-family: 'montserrat'
   font-size: 22px;
   font-weight: 600;
   line-height: 32px;

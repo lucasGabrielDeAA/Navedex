@@ -8,10 +8,23 @@ export default function Input({
   placeholder,
   multiline,
   handleFocus,
+  onChangeText,
   ...rest
 }) {
   const inputRef = useRef(null);
   const {fieldName, registerField, defaultValue = '', error} = useField(name);
+
+  const handleOnChange = useCallback(
+    (text) => {
+      if (inputRef.current) {
+        inputRef.current.value = text;
+      }
+      if (onChangeText) {
+        onChangeText(text);
+      }
+    },
+    [onChangeText],
+  );
 
   const handleInputFocus = useCallback(() => {
     handleFocus();
@@ -52,11 +65,7 @@ export default function Input({
         placeholder={placeholder}
         defaultValue={defaultValue}
         onFocus={() => handleInputFocus()}
-        onChangeText={(value) => {
-          if (inputRef.current) {
-            inputRef.current.value = value;
-          }
-        }}
+        onChangeText={handleOnChange}
         {...rest}
       />
 
