@@ -10,6 +10,7 @@ import AlertModal from '../../../components/AlertModal';
 import BackButton from '../../../components/BackButton';
 import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
+import InputMask from '../../../components/Form/InputMask';
 import ImageTitle from '../../../components/ImageTitle';
 
 import {Container, Title, Content, StyledButton} from './styles';
@@ -89,22 +90,24 @@ export default function New() {
             onSubmitEditing={() => focusNextInput('birthdate')}
           />
 
-          <Input
-            autoCorrect={false}
-            name="birthdate"
+          <InputMask
+            type="datetime"
+            returnKeyType="done"
             placeholder="Idade"
-            autoCapitalize="none"
-            returnKeyType="next"
+            name="birthdate"
+            keyboardType="numeric"
+            options={{format: 'DD/MM/YYYY'}}
             handleFocus={() => scrollToFocusedInput('birthdate')}
             onSubmitEditing={() => focusNextInput('admission_date')}
           />
 
-          <Input
-            autoCorrect={false}
-            name="admission_date"
+          <InputMask
+            type="datetime"
+            returnKeyType="done"
             placeholder="Tempo de empresa"
-            autoCapitalize="none"
-            returnKeyType="next"
+            name="admission_date"
+            keyboardType="numeric"
+            options={{format: 'DD/MM/YYYY'}}
             handleFocus={() => scrollToFocusedInput('admission_date')}
             onSubmitEditing={() => focusNextInput('job_role')}
           />
