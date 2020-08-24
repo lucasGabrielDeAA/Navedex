@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import {StatusBar} from 'react-native';
+import {StatusBar, Platform} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -16,7 +16,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <AppProvider>
-          <StatusBar barStyle="light-content" />
+          <StatusBar backgroundColor="#fff" barStyle="dark-content" />
 
           <Routes />
         </AppProvider>
