@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import colors from '../../../styles/colors';
+import Button from '../../../components/Button';
 
 export const Container = styled.SafeAreaView`
   align-items: center;
@@ -16,6 +17,10 @@ export const Title = styled.Text`
   font-weight: 600;
   line-height: 32px;
   margin-top: 36px;
+`;
+
+export const StyledButton = styled(Button)`
+  width: 100%;
 `;
 
 export const Content = styled.View`

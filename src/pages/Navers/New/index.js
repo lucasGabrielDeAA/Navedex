@@ -9,7 +9,6 @@ import Yup from '../../../config/yup';
 import api from '../../../services/api';
 
 import BackButton from '../../../components/BackButton';
-import Button from '../../../components/Button';
 import Form from '../../../components/Form';
 import Input from '../../../components/Form/Input';
 import ImageTitle from '../../../components/ImageTitle';
@@ -18,6 +17,7 @@ import {
   Container,
   Title,
   Content,
+  StyledButton,
   ModalContainer,
   ModalHeader,
   ModalTitle,
@@ -96,9 +96,7 @@ export default function New() {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => (
-        <BackButton callback={() => navigation.push('NaversList')} />
-      ),
+      headerLeft: () => <BackButton callback={() => navigation.pop()} />,
       headerTitle: <ImageTitle />,
     });
   }, [navigation]);
@@ -172,7 +170,10 @@ export default function New() {
             onSubmitEditing={() => formRef.current.submitForm()}
           />
 
-          <Button label="Salvar" onPress={() => formRef.current.submitForm()} />
+          <StyledButton
+            label="Salvar"
+            onPress={() => formRef.current.submitForm()}
+          />
         </Content>
       </Form>
 
