@@ -9,11 +9,12 @@
   // installing application's dependencies
   yarn
 
-  // running the aplpication
-  // IOS
+  // running the application
+
+  // For IOS's environment
   yarn ios
 
-  // Android
+  // For Android's environment
   yarn android
 ```
 
