@@ -36,6 +36,7 @@
 		DF08D8FFFBAA4837A12690E4 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8839770F818E4BE6BE28301E /* MaterialIcons.ttf */; };
 		F197C3BDCB53990D1D6D3326 /* libPods-Navedex-NavedexTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0807458F9E0B5E2396181118 /* libPods-Navedex-NavedexTests.a */; };
 		F2DBD14B39184E57BECB6AF1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BDC96C558BE41AAB51AD78A /* Zocial.ttf */; };
+		5AD6E876AFCA4E2FA66E636D /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4F7209BB134831806E5DF9 /* Montserrat-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F52C9C377B758E88EBB8437C /* Pods-Navedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navedex.release.xcconfig"; path = "Target Support Files/Pods-Navedex/Pods-Navedex.release.xcconfig"; sourceTree = "<group>"; };
+		0E4F7209BB134831806E5DF9 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				32B64B4D63974223BE3824E4 /* Octicons.ttf */,
 				B058B3FA4FEA4E429E11B0C8 /* SimpleLineIcons.ttf */,
 				8BDC96C558BE41AAB51AD78A /* Zocial.ttf */,
+				0E4F7209BB134831806E5DF9 /* Montserrat-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				78A0878D9D104EECA86258C3 /* Octicons.ttf in Resources */,
 				581F11C2AD814B388E7BF5D3 /* SimpleLineIcons.ttf in Resources */,
 				F2DBD14B39184E57BECB6AF1 /* Zocial.ttf in Resources */,
+				5AD6E876AFCA4E2FA66E636D /* Montserrat-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
