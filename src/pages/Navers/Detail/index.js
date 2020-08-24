@@ -1,6 +1,6 @@
 import React, {useCallback, useState, useLayoutEffect, useEffect} from 'react';
 
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, Modal, StyleSheet, View} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -19,9 +19,37 @@ import {
   Label,
   Actions,
   StyledButton,
+  ModalContainer,
+  ModalHeader,
+  ModalTitle,
+  ModalCloseButton,
+  ModalCloseIcon,
+  ModalLabel,
+  ModalFooter,
   RemoveIcon,
   EditIcon,
 } from './styles';
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    padding: 21,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    width: 328,
+  },
+});
 
 export default function Edit({
   route: {
@@ -33,6 +61,7 @@ export default function Edit({
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [alertModal, setAlertModal] = useState(false);
 
   const loadData = useCallback(async (id) => {
     try {
@@ -42,6 +71,19 @@ export default function Edit({
       setData(naver.data);
       setLoading(false);
     } catch (err) {}
+  }, []);
+
+  const handleDeleteNaver = useCallback(async () => {
+    try {
+      await api.delete(`/navers/${id}`);
+      await setModalVisible(false);
+      await setAlertModal(true);
+    } catch (err) {}
+  }, []);
+
+  const handleCloseAlertModal = useCallback(() => {
+    setAlertModal(false);
+    navigation.push('NaversList');
   }, []);
 
   useLayoutEffect(() => {
@@ -95,7 +137,7 @@ export default function Edit({
                 outline
                 label="Excluir"
                 icon={<RemoveIcon />}
-                onPress={() => handleRemove()}
+                onPress={() => setModalVisible(true)}
               />
 
               <StyledButton
@@ -107,6 +149,58 @@ export default function Edit({
           </Content>
         </>
       )}
+
+      <Modal
+        transparent
+        visible={modalVisible}
+        animationType="fade"
+        onRequestClose={() => {}}>
+        <ModalContainer style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <ModalHeader>
+              <ModalTitle>Excluir naver</ModalTitle>
+
+              <ModalCloseButton onPress={() => setModalVisible(false)}>
+                <ModalCloseIcon />
+              </ModalCloseButton>
+            </ModalHeader>
+
+            <ModalLabel>Tem certeza que deseja excluir este naver?</ModalLabel>
+
+            <ModalFooter>
+              <StyledButton
+                outline
+                label="Cancelar"
+                onPress={() => setModalVisible(false)}
+              />
+              <StyledButton
+                label="Excluir"
+                onPress={() => handleDeleteNaver()}
+              />
+            </ModalFooter>
+          </View>
+        </ModalContainer>
+      </Modal>
+
+      <Modal
+        transparent
+        visible={alertModal}
+        animationType="fade"
+        onRequestClose={() => {}}>
+        <ModalContainer style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <ModalHeader>
+              <ModalTitle>Naver excluído</ModalTitle>
+
+              <ModalCloseButton onPress={() => handleCloseAlertModal()}>
+                <ModalCloseIcon />
+              </ModalCloseButton>
+            </ModalHeader>
+
+            <ModalLabel>Naver excluído com sucesso!</ModalLabel>
+          </View>
+        </ModalContainer>
+      </Modal>
     </Container>
   );
 }
