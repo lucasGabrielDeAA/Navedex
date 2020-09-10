@@ -1,16 +1,16 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import SignIn from './pages/Auth/SignIn';
-import NaversEdit from './pages/Navers/Edit';
-import NaversDetail from './pages/Navers/Detail';
-import NaversList from './pages/Navers/List';
-import NaversNew from './pages/Navers/New';
+import SignIn from '~/pages/Auth/SignIn';
+import NaversEdit from '~/pages/Navers/Edit';
+import NaversDetail from '~/pages/Navers/Detail';
+import NaversList from '~/pages/Navers/List';
+import NaversNew from '~/pages/Navers/New';
 
-import {useAuth} from './hooks/useAuth';
-import LoadingScreen from './components/LoadingScreen';
-import DrawerContent from './components/DrawerContent';
+import {useAuth} from '~/hooks/useAuth';
+import LoadingScreen from '~/components/LoadingScreen';
+import DrawerContent from '~/components/DrawerContent';
 
 const Stack = createStackNavigator();
 

@@ -1,16 +1,16 @@
-import React, {useCallback, useState, useLayoutEffect, useEffect} from 'react';
+import React, { useCallback, useState, useLayoutEffect, useEffect } from 'react';
 
-import {ActivityIndicator, View} from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
-import moment from '../../../config/Moment';
+import moment from '~/config/Moment';
 
-import AlertModal from '../../../components/AlertModal';
-import BackButton from '../../../components/BackButton';
-import ImageTitle from '../../../components/ImageTitle';
+import AlertModal from '~/components/AlertModal';
+import BackButton from '~/components/BackButton';
+import ImageTitle from '~/components/ImageTitle';
 
 import {
   Container,

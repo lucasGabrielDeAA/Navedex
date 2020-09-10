@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-import colors from '../../../styles/colors';
+import colors from '~/styles/colors';
 
-import Button from '../../../components/Button';
+import Button from '~/components/Button';
 
 export const Container = styled.SafeAreaView`
   background: ${colors.white};

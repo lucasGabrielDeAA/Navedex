@@ -1,6 +1,6 @@
-import {create} from 'axios';
+import { create } from 'axios';
 
-import config from '../config';
+import config from '~/config';
 
 const api = create({
   baseURL: config.apiUrl,

@@ -6,23 +6,23 @@ import React, {
   useEffect,
 } from 'react';
 
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import Yup from '../../../config/yup';
-import moment from '../../../config/Moment';
+import Yup from '~/config/yup';
+import moment from '~/config/Moment';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
-import AlertModal from '../../../components/AlertModal';
-import BackButton from '../../../components/BackButton';
-import Form from '../../../components/Form';
-import Input from '../../../components/Form/Input';
-import ImageTitle from '../../../components/ImageTitle';
+import AlertModal from '~/components/AlertModal';
+import BackButton from '~/components/BackButton';
+import Form from '~/components/Form';
+import Input from '~/components/Form/Input';
+import ImageTitle from '~/components/ImageTitle';
+import InputMask from '~/components/Form/InputMask';
 
-import {Container, Title, StyledButton, Content} from './styles';
-import InputMask from '../../../components/Form/InputMask';
+import { Container, Title, StyledButton, Content } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),

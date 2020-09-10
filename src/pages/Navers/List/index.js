@@ -1,15 +1,15 @@
-import React, {useCallback, useState, useLayoutEffect, useEffect} from 'react';
+import React, { useCallback, useState, useLayoutEffect, useEffect } from 'react';
 
-import {View} from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
-import AlertModal from '../../../components/AlertModal';
-import Button from '../../../components/Button';
-import DrawerButton from '../../../components/DrawerButton';
-import ImageTitle from '../../../components/ImageTitle';
+import AlertModal from '~/components/AlertModal';
+import Button from '~/components/Button';
+import DrawerButton from '~/components/DrawerButton';
+import ImageTitle from '~/components/ImageTitle';
 
 import {
   Container,
@@ -21,7 +21,6 @@ import {
 } from './styles';
 
 import Naver from './components/Naver';
-import {ActivityIndicator} from 'react-native';
 
 export default function SignIn() {
   const navigation = useNavigation();

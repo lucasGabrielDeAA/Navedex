@@ -1,15 +1,15 @@
-import React, {useRef, useCallback, useState} from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 
-import NavedexLogo from '../../../assets/images/Logo.png';
+import NavedexLogo from '~/assets/images/Logo.png';
 
-import Yup from '../../../config/yup';
+import Yup from '~/config/yup';
 
-import Form from '../../../components/Form';
-import Input from '../../../components/Form/Input';
+import Form from '~/components/Form';
+import Input from '~/components/Form/Input';
 
-import {useAuth} from '../../../hooks/useAuth';
+import { useAuth } from '~/hooks/useAuth';
 
-import {Container, Content, Logo, InputGroup, StyledButton} from './styles';
+import { Container, Content, Logo, InputGroup, StyledButton } from './styles';
 
 const schema = Yup.object().shape({
   email: Yup.string().email().required(),
@@ -17,7 +17,7 @@ const schema = Yup.object().shape({
 });
 
 export default function SignIn() {
-  const {signIn} = useAuth();
+  const { signIn } = useAuth();
   const formRef = useRef(null);
   const [inputSelected, setInputSelected] = useState('');
 

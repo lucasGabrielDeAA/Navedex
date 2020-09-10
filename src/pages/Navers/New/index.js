@@ -1,21 +1,21 @@
-import React, {useRef, useCallback, useState, useLayoutEffect} from 'react';
+import React, { useRef, useCallback, useState, useLayoutEffect } from 'react';
 
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import Yup from '../../../config/yup';
+import Yup from '~/config/yup';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
-import AlertModal from '../../../components/AlertModal';
-import BackButton from '../../../components/BackButton';
-import Form from '../../../components/Form';
-import Input from '../../../components/Form/Input';
-import InputMask from '../../../components/Form/InputMask';
-import ImageTitle from '../../../components/ImageTitle';
+import AlertModal from '~/components/AlertModal';
+import BackButton from '~/components/BackButton';
+import Form from '~/components/Form';
+import Input from '~/components/Form/Input';
+import InputMask from '~/components/Form/InputMask';
+import ImageTitle from '~/components/ImageTitle';
 
-import {Container, Title, Content, StyledButton} from './styles';
+import { Container, Title, Content, StyledButton } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required(),

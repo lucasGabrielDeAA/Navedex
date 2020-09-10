@@ -1,9 +1,9 @@
-import styled, {css} from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import Icon from 'react-native-vector-icons/Foundation';
 
-import colors from '../../../styles/colors';
-import Button from '../../../components/Button';
+import colors from '~/styles/colors';
+import Button from '~/components/Button';
 
 export const Container = styled.SafeAreaView`
   background: ${colors.white};
