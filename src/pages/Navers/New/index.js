@@ -32,6 +32,8 @@ export default function New() {
 
   const [inputSelected, setInputSelected] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [displayErrorModal, setDisplayErrorModal] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = useCallback(async (data, {reset}) => {
     try {
@@ -40,8 +42,6 @@ export default function New() {
       await schema.validate(data, {
         abortEarly: false,
       });
-
-      console.tron.log(data);
 
       await api.post('/navers', data);
       await reset();
@@ -54,6 +54,9 @@ export default function New() {
           errors[error.path] = error.message;
         });
         formRef.current.setErrors(errors);
+      } else {
+        setError("Erro ao criar Naver!");
+        setDisplayErrorModal(true);
       }
     }
   }, []);
@@ -159,6 +162,13 @@ export default function New() {
         title="Naver adicionado"
         label="Naver adicionado com sucesso!"
         handleClose={() => setModalVisible(false)}
+      />
+
+      <AlertModal
+        visible={displayErrorModal}
+        title="Erro"
+        label={error}
+        handleClose={() => handleCloseErrorModal()}
       />
     </Container>
   );

@@ -24,7 +24,7 @@ import {
   EditIcon,
 } from './styles';
 
-export default function Edit({
+export default function Detail({
   route: {
     params: {id},
   },
@@ -35,6 +35,8 @@ export default function Edit({
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [alertModal, setAlertModal] = useState(false);
+  const [displayErrorModal, setDisplayErrorModal] = useState(false);
+  const [error, setError] = useState("");
 
   const loadData = useCallback(async (id) => {
     try {
@@ -43,7 +45,10 @@ export default function Edit({
 
       setData(naver.data);
       setLoading(false);
-    } catch (err) {}
+    } catch (err) {
+      setError("Erro ao buscar Naver!");
+      setDisplayErrorModal(true);
+    }
   }, []);
 
   const handleDeleteNaver = useCallback(async () => {
@@ -51,12 +56,20 @@ export default function Edit({
       await api.delete(`/navers/${id}`);
       await setModalVisible(false);
       await setAlertModal(true);
-    } catch (err) {}
+    } catch (err) {
+      setError("Erro ao deletar Naver!");
+      setDisplayErrorModal(true);
+    }
   }, []);
 
   const handleCloseAlertModal = useCallback(() => {
     setAlertModal(false);
     navigation.push('NaversList');
+  }, []);
+
+  const handleCloseErrorModal = useCallback(() => {
+    setDisplayErrorModal(false);
+    setError("");
   }, []);
 
   useLayoutEffect(() => {
@@ -144,6 +157,13 @@ export default function Edit({
         title="Naver excluído"
         label="Naver excluído com sucesso!"
         handleClose={() => handleCloseAlertModal()}
+      />
+
+      <AlertModal
+        visible={displayErrorModal}
+        title="Erro"
+        label={error}
+        handleClose={() => handleCloseErrorModal()}
       />
     </Container>
   );

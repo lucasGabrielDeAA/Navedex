@@ -43,6 +43,8 @@ export default function Edit({
 
   const [inputSelected, setInputSelected] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [displayErrorModal, setDisplayErrorModal] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = useCallback(async (data) => {
     try {
@@ -62,6 +64,9 @@ export default function Edit({
           errors[error.path] = error.message;
         });
         formRef.current.setErrors(errors);
+      } else {
+        setError("Erro ao atualizar Naver!");
+        setDisplayErrorModal(true);
       }
     }
   }, []);
@@ -90,12 +95,20 @@ export default function Edit({
         project: naver.data.project,
         url: naver.data.url,
       });
-    } catch (err) {}
+    } catch (err) {
+      setError("Erro ao buscar Naver!");
+      setDisplayErrorModal(true);
+    }
   }, []);
 
   const handleCloseModal = useCallback(() => {
     setModalVisible(false);
     navigation.push('NaversList');
+  }, []);
+
+  const handleCloseErrorModal = useCallback(() => {
+    setDisplayErrorModal(false);
+    setError("");
   }, []);
 
   useLayoutEffect(() => {
@@ -193,6 +206,13 @@ export default function Edit({
         title="Naver editado"
         label="Naver editado com sucesso!"
         handleClose={() => handleCloseModal()}
+      />
+
+      <AlertModal
+        visible={displayErrorModal}
+        title="Erro"
+        label={error}
+        handleClose={() => handleCloseErrorModal()}
       />
     </Container>
   );

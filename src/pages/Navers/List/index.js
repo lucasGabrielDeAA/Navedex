@@ -22,7 +22,7 @@ import {
 
 import Naver from './components/Naver';
 
-export default function SignIn() {
+export default function List() {
   const navigation = useNavigation();
 
   const [data, setData] = useState([]);
@@ -30,14 +30,8 @@ export default function SignIn() {
   const [modalVisible, setModalVisible] = useState(false);
   const [alertModal, setAlertModal] = useState(false);
   const [idSelected, setIdSelected] = useState(null);
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => <DrawerButton />,
-      headerTitle: () => <ImageTitle />,
-      headerRight: () => <View />,
-    });
-  }, [navigation]);
+  const [displayErrorModal, setDisplayErrorModal] = useState(false);
+  const [error, setError] = useState("");
 
   const loadData = useCallback(async () => {
     try {
@@ -46,7 +40,10 @@ export default function SignIn() {
 
       setData(navers.data);
       setLoading(false);
-    } catch (err) {}
+    } catch (err) {
+      setError("Erro ao buscar Naver!");
+      setDisplayErrorModal(true);
+    }
   }, []);
 
   const handleOpenModal = useCallback((id) => {
@@ -67,12 +64,23 @@ export default function SignIn() {
         await setAlertModal(true);
         setData(data.filter((naver) => naver.id !== idSelected));
       }
-    } catch (err) {}
+    } catch (err) {
+      setError("Erro ao deletar Naver!");
+      setDisplayErrorModal(true);
+    }
   }, [idSelected, data]);
 
   useEffect(() => {
     loadData();
   }, []);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => <DrawerButton />,
+      headerTitle: () => <ImageTitle />,
+      headerRight: () => <View />,
+    });
+  }, [navigation]);
 
   return (
     <Container>
@@ -125,6 +133,13 @@ export default function SignIn() {
           title="Naver excluído"
           label="Naver excluído com sucesso!"
           handleClose={() => setAlertModal(false)}
+        />
+
+        <AlertModal
+          visible={displayErrorModal}
+          title="Erro"
+          label={error}
+          handleClose={() => handleCloseErrorModal()}
         />
       </Content>
     </Container>
