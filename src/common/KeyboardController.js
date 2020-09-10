@@ -1,5 +1,5 @@
-import React, {useEffect, useCallback} from 'react';
-import {View, LayoutAnimation, Keyboard, Platform} from 'react-native';
+import React, { useEffect, useCallback } from 'react';
+import { View, LayoutAnimation, Keyboard, Platform } from 'react-native';
 
 export default function KeyboardController({callback, children}) {
   const onChangeKeyboard = useCallback(
