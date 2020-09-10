@@ -12,13 +12,13 @@
   // running the application
 
   // For IOS's environment
-  yarn ios
+  cd ios && pod install && cd .. && yarn ios
 
   // For Android's environment
   yarn android
 ```
 
-**Login\'s user information**
+**Login's user information**
 
 ```json
   {
