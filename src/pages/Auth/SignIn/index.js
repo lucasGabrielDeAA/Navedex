@@ -4,6 +4,7 @@ import NavedexLogo from '~/assets/images/Logo.png';
 
 import Yup from '~/config/yup';
 
+import AlertModal from '~/components/AlertModal';
 import Form from '~/components/Form';
 import Input from '~/components/Form/Input';
 
@@ -20,6 +21,8 @@ export default function SignIn() {
   const { signIn } = useAuth();
   const formRef = useRef(null);
   const [inputSelected, setInputSelected] = useState('');
+  const [displayErrorModal, setDisplayErrorModal] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = useCallback(async (data) => {
     try {
@@ -37,6 +40,9 @@ export default function SignIn() {
           errors[error.path] = error.message;
         });
         formRef.current.setErrors(errors);
+      } else {
+        setError("Erro de autenticação!");
+        setDisplayErrorModal(true);
       }
     }
   }, []);
@@ -47,6 +53,11 @@ export default function SignIn() {
 
   const focusNextInput = useCallback((inputName) => {
     formRef.current.getFieldRef(inputName).focus();
+  }, []);
+
+  const handleCloseErrorModal = useCallback(() => {
+    setDisplayErrorModal(false);
+    setError("");
   }, []);
 
   return (
@@ -86,6 +97,13 @@ export default function SignIn() {
           />
         </Form>
       </Content>
+
+      <AlertModal
+        visible={displayErrorModal}
+        title="Erro"
+        label={error}
+        handleClose={() => handleCloseErrorModal()}
+      />
     </Container>
   );
 }
