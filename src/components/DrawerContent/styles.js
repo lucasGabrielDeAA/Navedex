@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
+import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 
-import colors from '../../styles/colors';
+import colors from '~/styles/colors';
 
 export const Container = styled.View`
   flex: 1;

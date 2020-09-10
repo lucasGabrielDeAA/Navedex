@@ -1,6 +1,6 @@
-import styled, {css} from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
-import colors from '../../styles/colors';
+import colors from '~/styles/colors';
 
 export const StyledButton = styled.TouchableOpacity`
   align-items: center;

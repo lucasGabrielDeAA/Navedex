@@ -1,7 +1,7 @@
-import React, {useRef, useEffect, useCallback} from 'react';
-import {useField} from '@unform/core';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { useField } from '@unform/core';
 
-import {Container, Label, CustomInput, Error} from './styles';
+import { Container, Label, CustomInput, Error } from './styles';
 
 export default function Input({
   name,
@@ -12,7 +12,7 @@ export default function Input({
   ...rest
 }) {
   const inputRef = useRef(null);
-  const {fieldName, registerField, defaultValue = '', error} = useField(name);
+  const { fieldName, registerField, defaultValue = '', error } = useField(name);
 
   const handleOnChange = useCallback(
     (text) => {

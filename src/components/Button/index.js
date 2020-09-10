@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyledButton, Label} from './styles';
+import { StyledButton, Label } from './styles';
 
 export default function Button({
   color,

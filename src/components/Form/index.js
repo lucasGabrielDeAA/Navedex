@@ -1,13 +1,13 @@
-import React, {useRef, useState, useCallback, useEffect} from 'react';
-import {Platform} from 'react-native';
-import {useHeaderHeight} from '@react-navigation/stack';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { Platform } from 'react-native';
+import { useHeaderHeight } from '@react-navigation/stack';
 
-import {Form as CustomForm} from '@unform/mobile';
+import { Form as CustomForm } from '@unform/mobile';
 
-import KeyboardController from '../../common/KeyboardController';
-import useDebounce from '../../common/useDebounce';
+import KeyboardController from '~/common/KeyboardController';
+import useDebounce from '~/common/useDebounce';
 
-import {Container} from './styles';
+import { Container } from './styles';
 
 export default function Form({
   handleSubmit,

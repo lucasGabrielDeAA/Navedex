@@ -1,7 +1,7 @@
 import React from 'react';
-import {useNavigation, DrawerActions} from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 
-import {Button, DrawerIcon} from './styles';
+import { Button, DrawerIcon } from './styles';
 
 export default function DrawerButton() {
   const navigation = useNavigation();

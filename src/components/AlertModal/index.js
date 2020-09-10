@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Modal, StyleSheet} from 'react-native';
+import { Modal } from 'react-native';
 
 import {
   Container,
@@ -12,27 +12,6 @@ import {
   Label,
   Footer,
 } from './styles';
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    padding: 21,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    width: 328,
-  },
-});
 
 export default function AlertModal({
   visible,
@@ -48,8 +27,8 @@ export default function AlertModal({
       visible={visible}
       animationType="fade"
       onRequestClose={() => {}}>
-      <Container style={styles.modalContainer}>
-        <Content style={styles.modalView}>
+      <Container>
+        <Content>
           <Header>
             <Title>{title}</Title>
 

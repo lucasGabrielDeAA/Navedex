@@ -1,6 +1,6 @@
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from 'react';
 
-import {TextInputMask} from 'react-native-masked-text';
+import { TextInputMask } from 'react-native-masked-text';
 
 import Input from '../Input';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, BackIcon} from './styles';
+import { Button, BackIcon } from './styles';
 
 export default function BackButton({callback}) {
   return (

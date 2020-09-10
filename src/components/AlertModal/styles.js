@@ -2,15 +2,27 @@ import styled from 'styled-components/native';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import colors from '../../styles/colors';
+import colors from '~/styles/colors';
 
 export const Container = styled.View`
   align-items: center;
+  background: rgba(0, 0, 0, 0.7);
   flex: 1;
   justify-content: center;
 `;
 
-export const Content = styled.View``;
+export const Content = styled.View`
+  align-items: center;
+  background: ${colors.white};
+  elevation: 5;
+  margin: 20px;
+  padding: 21px;
+  shadow-color: ${colors.primary};
+  shadow-offset: { height: 2, width: 0 };
+  shadow-opacity: 0.25;
+  shadow-radius: 3.84;
+  width: 328px;
+`;
 
 export const Header = styled.View`
   display: flex;

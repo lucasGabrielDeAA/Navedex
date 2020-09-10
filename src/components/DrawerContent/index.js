@@ -1,13 +1,13 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import {useAuth} from '../../hooks/useAuth';
+import { useAuth } from '~/hooks/useAuth';
 
-import {Container, Content, Menu, Option, OptionLabel} from './styles';
+import { Container, Content, Menu, Option, OptionLabel } from './styles';
 
 export default function DrawerContent() {
   const navigation = useNavigation();
-  const {signOut} = useAuth();
+  const { signOut } = useAuth();
 
   return (
     <Container>

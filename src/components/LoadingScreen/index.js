@@ -1,9 +1,9 @@
 import React from 'react';
-import {ActivityIndicator} from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
-import colors from '../../styles/colors';
+import colors from '~/styles/colors';
 
-import {Container} from './styles';
+import { Container } from './styles';
 
 export default function LoadingScreen() {
   return (
